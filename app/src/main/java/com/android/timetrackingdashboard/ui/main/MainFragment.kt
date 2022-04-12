@@ -20,7 +20,7 @@ class MainFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
-        viewModel.getData(getJsonDataString())
+        viewModel.getTimeData(getJsonDataString())
 
         return inflater.inflate(R.layout.main_fragment, container, false)
     }

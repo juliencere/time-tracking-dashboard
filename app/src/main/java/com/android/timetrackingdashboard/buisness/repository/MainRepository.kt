@@ -20,7 +20,7 @@ class MainRepository {
 //        return null
 //    }
 
-    suspend fun getDataAsync(jsonString: String): List<TimeData>? = withContext(Dispatchers.IO)  {
+    suspend fun getTimeDataAsync(jsonString: String): List<TimeData>? = withContext(Dispatchers.IO)  {
         async {
             try {
                 val collectionType: Type = object : TypeToken<Collection<TimeData?>?>() {}.type
