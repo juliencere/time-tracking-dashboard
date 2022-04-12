@@ -14,7 +14,7 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+        holder.binding.timeData = items[position]
     }
 
     override fun getItemCount(): Int {
@@ -26,6 +26,5 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
         notifyItemRangeChanged(0, images.size)
     }
 
-    inner class ViewHolder(private val binding: TimeFrameItemBinding) : RecyclerView.ViewHolder(binding.root) {
-    }
+    inner class ViewHolder(val binding: TimeFrameItemBinding) : RecyclerView.ViewHolder(binding.root)
 }

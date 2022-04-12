@@ -16,8 +16,10 @@ class MainViewModel : ViewModel() {
     fun getTimeData(dataString: String) {
         loadingState.postValue(LoadingState.LOADING)
         viewModelScope.launch {
-            val result = mainRepository.getTimeDataAsync(dataString)
-            //TODO
+            val result: List<TimeData>? = mainRepository.getTimeDataAsync(dataString)
+            result?.let {
+                timeData.postValue(it)
+            }
             loadingState.postValue(LoadingState.OK)
         }
     }
