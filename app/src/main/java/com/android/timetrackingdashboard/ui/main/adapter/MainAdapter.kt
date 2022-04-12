@@ -27,6 +27,5 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
     }
 
     inner class ViewHolder(private val binding: TimeFrameItemBinding) : RecyclerView.ViewHolder(binding.root) {
-
     }
 }

@@ -10,8 +10,8 @@ import kotlinx.coroutines.launch
 class MainViewModel : ViewModel() {
 
     private val mainRepository = MainRepository()
-    private var timeData = MutableLiveData<List<TimeData>>()
-    private var loadingState = MutableLiveData<LoadingState>()
+    var timeData = MutableLiveData<List<TimeData>>()
+    var loadingState = MutableLiveData<LoadingState>()
 
     fun getTimeData(dataString: String) {
         loadingState.postValue(LoadingState.LOADING)

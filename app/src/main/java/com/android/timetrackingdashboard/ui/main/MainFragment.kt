@@ -6,7 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.android.timetrackingdashboard.R
+import com.android.timetrackingdashboard.databinding.MainFragmentBinding
+import com.android.timetrackingdashboard.ui.main.adapter.MainAdapter
 import java.io.IOException
 
 class MainFragment : Fragment() {
@@ -15,14 +16,31 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
+    private var _binding: MainFragmentBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var viewModel: MainViewModel
+    private lateinit var timeDataAdapter: MainAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        _binding = MainFragmentBinding.inflate(inflater, container, false)
 
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         viewModel.getTimeData(getJsonDataString())
 
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+
+        timeDataAdapter = MainAdapter()
+        binding.timeDataRecycleView.adapter = timeDataAdapter
+
+        viewModel.timeData.observe(viewLifecycleOwner) { results ->
+            results?.let { timeDataItems ->
+                timeDataAdapter.updateItems(timeDataItems)
+            }
+        }
+
+        return binding.root
     }
 
     /**
