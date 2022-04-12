@@ -21,9 +21,9 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
         return items.size
     }
 
-    fun updateItems(images: List<TimeData>) {
-        this.items = images
-        notifyItemRangeChanged(0, images.size)
+    fun updateItems(newItems: List<TimeData>) {
+        this.items = newItems
+        notifyItemRangeChanged(0, newItems.size)
     }
 
     inner class ViewHolder(val binding: TimeFrameItemBinding) : RecyclerView.ViewHolder(binding.root)

@@ -11,16 +11,7 @@ import java.lang.reflect.Type
 
 class MainRepository {
 
-//    fun getDataAsync(jsonString: String): List<TimeData>? {
-//        try {
-//            val collectionType: Type = object : TypeToken<Collection<TimeData?>?>() {}.type
-//            return Gson().fromJson(jsonString, collectionType)
-//        } catch (e: Exception) {
-//        }
-//        return null
-//    }
-
-    suspend fun getTimeDataAsync(jsonString: String): List<TimeData>? = withContext(Dispatchers.IO)  {
+    suspend fun getTimeDataAsync(jsonString: String): List<TimeData>? = withContext(Dispatchers.IO) {
         async {
             try {
                 val collectionType: Type = object : TypeToken<Collection<TimeData?>?>() {}.type

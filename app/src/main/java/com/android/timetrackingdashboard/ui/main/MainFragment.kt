@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.timetrackingdashboard.databinding.MainFragmentBinding
 import com.android.timetrackingdashboard.ui.main.adapter.MainAdapter
 import java.io.IOException
@@ -32,6 +33,7 @@ class MainFragment : Fragment() {
         binding.viewModel = viewModel
 
         timeDataAdapter = MainAdapter()
+        binding.timeDataRecycleView.layoutManager = LinearLayoutManager(requireContext())
         binding.timeDataRecycleView.adapter = timeDataAdapter
 
         viewModel.timeData.observe(viewLifecycleOwner) { results ->
