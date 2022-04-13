@@ -10,7 +10,7 @@
 
         <import type="android.view.View" />
 
-        <import type="com.android.timetrackingdashboard.ui.main.LoadingState" />
+        <import type="com.android.timetrackingdashboard.ui.main.state.LoadingState" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

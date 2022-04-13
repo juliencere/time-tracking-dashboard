@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Time Tracking Dashboard</string>
+
+    <string name="yesterday">Yesterday - %s</string>
+    <string name="last_week">Last week - %s</string>
+    <string name="last_month">Last month - %s</string>
+
+    <string name="hours">%s hrs</string>
 </resources>

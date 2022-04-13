@@ -32,7 +32,7 @@ class MainFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        timeDataAdapter = MainAdapter()
+        timeDataAdapter = MainAdapter(requireContext())
         binding.timeDataRecycleView.layoutManager = LinearLayoutManager(requireContext())
         binding.timeDataRecycleView.adapter = timeDataAdapter
 
