@@ -92,7 +92,7 @@
                         android:layout_height="0dp"
                         android:ellipsize="marquee"
                         android:gravity="bottom"
-                        android:text="@{@string/last_week(@string/hours(timeData.timeframes.daily.previous))}"
+                        android:text="@{@string/yesterday(@string/hours(timeData.timeframes.daily.previous))}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/title"
