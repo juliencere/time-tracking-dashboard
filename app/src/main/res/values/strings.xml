@@ -6,4 +6,10 @@
     <string name="last_month">Last month - %s</string>
 
     <string name="hours">%s hrs</string>
+
+    <string name="daily">Daily</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+
+    <string name="report_for">Report for</string>
 </resources>

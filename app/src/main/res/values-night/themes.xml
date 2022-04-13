@@ -18,6 +18,10 @@
         <item name="cardBackgroundColor">@color/dark_blue</item>
     </style>
 
+    <style name="TTD.CardView.Inner" parent="CardView.Dark">
+        <item name="cardBackgroundColor">@color/blue</item>
+    </style>
+
     <style name="TTD.Title" parent="TextAppearance.AppCompat.Title">
         <item name="android:textColor">@color/white</item>
     </style>
