@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_exercise.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/main_activity.xml" value="0.2796875" />
         <entry key="app/src/main/res/layout/main_fragment.xml" value="0.18" />
         <entry key="app/src/main/res/layout/time_frame_item.xml" value="0.375" />
         <entry key="app/src/main/res/layout/user_card_item.xml" value="0.25" />
