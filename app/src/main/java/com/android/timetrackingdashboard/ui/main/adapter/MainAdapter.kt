@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.timetrackingdashboard.R
 import com.android.timetrackingdashboard.buisness.data.model.TimeData
 import com.android.timetrackingdashboard.databinding.TimeFrameItemBinding
+import com.android.timetrackingdashboard.ui.main.state.TimeStateEnum
 
 class MainAdapter(private val context: Context) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
     private var items: List<TimeData> = mutableListOf()
+    private var timeState: TimeStateEnum = TimeStateEnum.DAILY
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(TimeFrameItemBinding.inflate(LayoutInflater.from(parent.context), parent, false), context)
@@ -18,6 +20,7 @@ class MainAdapter(private val context: Context) : RecyclerView.Adapter<MainAdapt
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.timeData = items[position]
+        holder.binding.timeState = timeState
         holder.setHeader(items[position])
     }
 
@@ -28,6 +31,11 @@ class MainAdapter(private val context: Context) : RecyclerView.Adapter<MainAdapt
     fun updateItems(newItems: List<TimeData>) {
         this.items = newItems
         notifyItemRangeChanged(0, newItems.size)
+    }
+
+    fun updateState(timeState: TimeStateEnum) {
+        this.timeState = timeState
+        notifyItemRangeChanged(0, items.size)
     }
 
     inner class ViewHolder(val binding: TimeFrameItemBinding, private val context: Context) : RecyclerView.ViewHolder(binding.root) {

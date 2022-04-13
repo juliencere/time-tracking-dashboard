@@ -6,13 +6,19 @@ import androidx.lifecycle.viewModelScope
 import com.android.timetrackingdashboard.buisness.data.model.TimeData
 import com.android.timetrackingdashboard.buisness.repository.MainRepository
 import com.android.timetrackingdashboard.ui.main.state.LoadingState
+import com.android.timetrackingdashboard.ui.main.state.TimeStateEnum
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
     private val mainRepository = MainRepository()
-    var timeData = MutableLiveData<List<TimeData>>()
-    var loadingState = MutableLiveData<LoadingState>()
+    val timeData = MutableLiveData<List<TimeData>>()
+    val loadingState = MutableLiveData<LoadingState>()
+    val timeState = MutableLiveData<TimeStateEnum>()
+
+    init {
+        timeState.value = TimeStateEnum.WEEKLY
+    }
 
     fun getTimeData(dataString: String) {
         loadingState.postValue(LoadingState.LOADING)

@@ -8,6 +8,12 @@
         <variable
             name="timeData"
             type="com.android.timetrackingdashboard.buisness.data.model.TimeData" />
+
+        <variable
+            name="timeState"
+            type="com.android.timetrackingdashboard.ui.main.state.TimeStateEnum" />
+
+        <import type="com.android.timetrackingdashboard.ui.main.state.TimeStateEnum"/>
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -78,7 +84,7 @@
                         android:layout_height="0dp"
                         android:ellipsize="marquee"
                         android:gravity="bottom"
-                        android:text="@{@string/hours(timeData.timeframes.daily.current)}"
+                        android:text="@{timeState == TimeStateEnum.DAILY ? @string/hours(timeData.timeframes.daily.current) : timeState == TimeStateEnum.WEEKLY ? @string/hours(timeData.timeframes.weekly.current) : @string/hours(timeData.timeframes.monthly.current)}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/settings"
                         app:layout_constraintStart_toStartOf="parent"
@@ -92,12 +98,11 @@
                         android:layout_height="0dp"
                         android:ellipsize="marquee"
                         android:gravity="bottom"
-                        android:text="@{@string/yesterday(@string/hours(timeData.timeframes.daily.previous))}"
+                        android:text='@{timeState == TimeStateEnum.DAILY ? @string/yesterday(@string/hours(timeData.timeframes.daily.previous)) : timeState == TimeStateEnum.WEEKLY ? @string/last_week(@string/hours(timeData.timeframes.weekly.previous)) :  @string/last_month(@string/hours(timeData.timeframes.monthly.previous)) }'
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/title"
                         tools:text="Last week - 5hrs" />
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,8 +5,10 @@
     <data>
 
         <variable
-            name="timeData"
-            type="com.android.timetrackingdashboard.buisness.data.model.TimeData" />
+            name="viewModel"
+            type="com.android.timetrackingdashboard.ui.main.MainViewModel" />
+
+        <import type="com.android.timetrackingdashboard.ui.main.state.TimeStateEnum" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -66,10 +68,11 @@
                             android:text="@string/report_for" />
 
                         <androidx.appcompat.widget.AppCompatTextView
-                            style="@style/TTD.Title"
+                            style="@style/TTD.Display"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Jeremy Robson" />
+                            android:text="Jeremy Robson"
+                            android:textSize="30sp" />
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -91,7 +94,8 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:focusable="true"
-                    android:text="@string/daily" />
+                    android:text="@string/daily"
+                    android:textColor="@{viewModel.timeState == TimeStateEnum.DAILY ? @color/white : @color/pale_blue}"  />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/weekly"
@@ -100,16 +104,18 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:focusable="true"
-                    android:text="@string/weekly" />
+                    android:text="@string/weekly"
+                    android:textColor="@{viewModel.timeState == TimeStateEnum.WEEKLY ? @color/white : @color/pale_blue}" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/monthly"
-                    style="@style/TTD.Subtitle"
+                    style="@style/TTD.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:focusable="true"
-                    android:text="@string/monthly" />
+                    android:text="@string/monthly"
+                    android:textColor="@{viewModel.timeState == TimeStateEnum.MONTHLY ? @color/white : @color/pale_blue}" />
             </com.google.android.flexbox.FlexboxLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

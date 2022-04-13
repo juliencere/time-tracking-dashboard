@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.android.timetrackingdashboard.ui.main.MainViewModel" />
@@ -14,11 +15,11 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        style="@style/Theme.TimeTrackingDashboard"
         android:id="@+id/main"
-        android:layout_marginTop="@dimen/vertical_margin"
+        style="@style/Theme.TimeTrackingDashboard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/vertical_margin"
         tools:context=".ui.main.MainFragment">
 
         <include
@@ -26,7 +27,8 @@
             layout="@layout/user_card_item"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:viewModel="@{viewModel}" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/time_data_recycle_view"

@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.timetrackingdashboard.databinding.MainFragmentBinding
 import com.android.timetrackingdashboard.ui.main.adapter.MainAdapter
+import com.android.timetrackingdashboard.ui.main.state.TimeStateEnum
 import java.io.IOException
 
 class MainFragment : Fragment() {
@@ -41,6 +42,16 @@ class MainFragment : Fragment() {
                 timeDataAdapter.updateItems(timeDataItems)
             }
         }
+
+        viewModel.timeState.observe(viewLifecycleOwner) { results ->
+            results?.let { timeState ->
+                timeDataAdapter.updateState(timeState)
+            }
+        }
+
+        binding.profile.daily.setOnClickListener { viewModel.timeState.value = TimeStateEnum.DAILY }
+        binding.profile.weekly.setOnClickListener { viewModel.timeState.value = TimeStateEnum.WEEKLY }
+        binding.profile.monthly.setOnClickListener { viewModel.timeState.value = TimeStateEnum.MONTHLY }
 
         return binding.root
     }
